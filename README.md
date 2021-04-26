@@ -35,7 +35,10 @@ it like this:
 
 This will put a new certificate in place under `$PWD/data`. You should
 definitely look at setting up a post hook to then deploy that certificate
-somewhere.
+somewhere. (Note that scripts in the `renewal-hooks` directory will _not_ be
+run on a call to `certonly`. They only get run on calls to `renew`. That is to
+say that you should manually run any hooks that you want to run after calling
+`certonly` to create a new certificate.)
 
 ## Using With Kubernetes
 

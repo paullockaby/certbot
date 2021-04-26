@@ -13,7 +13,7 @@ ConfigArgParse==1.4
 configobj==5.0.6
 cryptography==3.4.7
 distro==1.5.0
-idna==2.10
+idna==3.1
 jmespath==0.10.0
 josepy==1.8.0
 parsedatetime==2.6

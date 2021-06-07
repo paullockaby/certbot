@@ -1,6 +1,6 @@
 # direct dependencies
 certbot==1.15.0
-certbot-dns-route53==1.15.0
+certbot-dns-route53==1.16.0
 
 # transitive dependencies
 acme==1.15.0

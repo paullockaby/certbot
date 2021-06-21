@@ -9,7 +9,7 @@ botocore==1.20.93
 certifi==2021.5.30
 cffi==1.14.5
 chardet==4.0.0
-ConfigArgParse==1.4.1
+ConfigArgParse==1.5
 configobj==5.0.6
 cryptography==3.4.7
 distro==1.5.0

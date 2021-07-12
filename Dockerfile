@@ -32,4 +32,4 @@ COPY renew /usr/local/bin/renew
 RUN chmod +x /usr/local/bin/renew
 
 VOLUME ["/etc/letsencrypt", "/var/log/letsencrypt"]
-CMD ["/usr/bin/tini", "--", "/usr/local/bin/renew"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/renew"]

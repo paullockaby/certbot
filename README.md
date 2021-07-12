@@ -2,7 +2,7 @@
 This container lets you manage a [certbot](https://pypi.org/project/certbot/)
 system. When the container starts it just goes into a loop that checks to every
 four hours see if any certificates need to be renewed. You can exec into it to
-run renewals manually or create  new certificates.
+run renewals manually or create new certificates.
 
 ## Notes
 
@@ -18,7 +18,6 @@ two volumes mounted.
 
     docker build -t ghcr.io/paullockaby/certbot:latest .
     docker run --rm -it -v $PWD/data:/etc/letsencrypt -v $PWD/logs:/var/log/letsencrypt ghcr.io/paullockaby/certbot:latest renew
-
 
 That is, you need to mount a directory for `/etc/letsencrypt` and
 `/var/log/letsencrypt`. If you have renewal hooks that you want to run then you

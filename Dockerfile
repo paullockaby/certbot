@@ -3,6 +3,12 @@ FROM python:3.9.6-slim-buster@sha256:2c018e29a8eada75e855d78641adda978a2c0a035fd
 # github metadata
 LABEL org.opencontainers.image.source=https://github.com/paullockaby/certbot
 
+# install updates and dependencies
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -q update && apt-get -y upgrade && \
+    apt-get install -y --no-install-recommends tini && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 FROM base AS builder
 
 # install python dependencies
@@ -14,10 +20,9 @@ RUN python3 -m venv --system-site-packages /opt/certbot && \
 FROM base AS final
 
 # packages needed to run this thing
-# packages needed to run this thing
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -q update && \
-    apt-get install -y --no-install-recommends tini openssh-client rsync socat && \
+    apt-get install -y --no-install-recommends openssh-client rsync socat && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # copy the virtual environment that we just built

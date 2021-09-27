@@ -15,7 +15,7 @@ cryptography==3.4.8
 distro==1.6.0
 idna==3.2
 jmespath==0.10.0
-josepy==1.8.0
+josepy==1.10.0
 parsedatetime==2.6
 pycparser==2.20
 pyOpenSSL==20.0.1

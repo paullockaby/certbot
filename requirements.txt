@@ -5,7 +5,7 @@ certbot-dns-route53==1.20.0
 # transitive dependencies
 acme==1.20.0
 boto3==1.18.59
-botocore==1.21.56
+botocore==1.21.59
 certifi==2021.5.30
 cffi==1.14.6
 charset-normalizer==2.0.6

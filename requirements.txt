@@ -3,7 +3,7 @@ certbot==1.20.0
 certbot-dns-route53==1.20.0
 
 # transitive dependencies
-acme==1.20.0
+acme==1.21.0
 boto3==1.19.9
 botocore==1.22.9
 certifi==2021.10.8

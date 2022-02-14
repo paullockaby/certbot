@@ -1,5 +1,5 @@
 # direct dependencies
-certbot==1.22.0
+certbot==1.23.0
 certbot-dns-route53==1.22.0
 
 # transitive dependencies

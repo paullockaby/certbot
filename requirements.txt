@@ -4,8 +4,8 @@ certbot-dns-route53==1.24.0
 
 # transitive dependencies
 acme==1.24.0
-boto3==1.21.10
-botocore==1.24.10
+boto3==1.21.16
+botocore==1.24.16
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.12
@@ -15,7 +15,7 @@ cryptography==36.0.1
 distro==1.7.0
 idna==3.3
 jmespath==0.10.0
-josepy==1.12.0
+josepy==1.13.0
 parsedatetime==2.6
 pycparser==2.21
 pyOpenSSL==22.0.0

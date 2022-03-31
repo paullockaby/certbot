@@ -1,36 +1,10 @@
-FROM python:3.9.12-slim-bullseye@sha256:4775df65be2a8b37da6dd1c152ed3fe4fe0148123ed69053b70b5f97fb44f322 AS base
+FROM docker.io/certbot/dns-route53@sha256:85655cdf29adfdd58f871c19b5b8bc3a182c70eaa670b7cdde92da72052a4486 AS base
 
 # github metadata
 LABEL org.opencontainers.image.source=https://github.com/paullockaby/certbot
 
-# install updates and dependencies
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -q update && apt-get -y upgrade && \
-    apt-get install -y --no-install-recommends tini && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
-FROM base AS builder
-
-# install python dependencies
-COPY requirements.txt /
-RUN python3 -m venv --system-site-packages /opt/certbot && \
-    . /opt/certbot/bin/activate && \
-    pip3 install --no-cache-dir -r /requirements.txt
-
-FROM base AS final
-
-# packages needed to run this thing
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -q update && \
-    apt-get install -y --no-install-recommends openssh-client rsync socat && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# copy the virtual environment that we just built
-COPY --from=builder /opt /opt
-
-# copy the script for interacting with certbot
-COPY certbot /usr/local/bin/certbot
-RUN chmod +x /usr/local/bin/certbot
+# install minimal tools and do not store caches
+RUN apk add --no-cache --update --verbose socat bash tini
 
 # install the entrypoint last to help with caching
 COPY renew /usr/local/bin/renew

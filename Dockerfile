@@ -1,4 +1,4 @@
-FROM docker.io/certbot/dns-route53@sha256:85655cdf29adfdd58f871c19b5b8bc3a182c70eaa670b7cdde92da72052a4486 AS base
+FROM docker.io/certbot/dns-route53@sha256:b46ef46f9abf84f723cfb0e0fc77503df286c716c68868225d38a34eaf7baa1d AS base
 
 # github metadata
 LABEL org.opencontainers.image.source=https://github.com/paullockaby/certbot

@@ -8,8 +8,8 @@ run renewals manually or create new certificates.
 
 This container prioritizes the Amazon Web Services Route 53 DNS Authenticator
 for performing the ACME challenge that certbot requires. You can change this by
-adding the new connector to `requirements.txt` and rebuilding the container
-with the new plugins.
+changing the `FROM` line in `Dockerfile` to match the base that you'd like to
+use and rebuilding the container.
 
 ## Running on Docker
 

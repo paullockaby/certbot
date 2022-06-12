@@ -1,4 +1,4 @@
-FROM certbot/dns-route53:latest@sha256:e2b2f7a803b8673ca09dd3d856299a89ec888caaddce4f984d1bde3254bf21c7
+FROM certbot/dns-route53:latest@sha256:39c989cab7a44f996fc4a7675b53c34ce245203e1f26220c07d54cbdad1d3849
 
 # github metadata
 LABEL org.opencontainers.image.source=https://github.com/paullockaby/certbot

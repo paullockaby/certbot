@@ -1,14 +1,16 @@
-FROM certbot/dns-route53:latest@sha256:b058873642348ec79142d1ff7a84af8918027ed92b45b8a1f09222e143c2a094
+FROM debian:bullseye-slim@sha256:e8ad0bc7d0ee6afd46e904780942033ab83b42b446b58efa88d31ecf3adf4678 AS base
 
 # github metadata
 LABEL org.opencontainers.image.source=https://github.com/paullockaby/certbot
 
-# install minimal tools and do not store caches
-RUN apk add --no-cache --update --verbose socat bash tini
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -q update && apt-get -y upgrade && \
+    apt-get install -y --no-install-recommends tini socat certbot python3-certbot-dns-route53 && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install the entrypoint last to help with caching
 COPY renew /usr/local/bin/renew
 RUN chmod +x /usr/local/bin/renew
 
-VOLUME ["/etc/letsencrypt", "/var/log/letsencrypt"]
-ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/renew"]
+VOLUME ["/etc/letsencrypt", "/var/lib/letsencrypt", "/var/log/letsencrypt"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/renew"]

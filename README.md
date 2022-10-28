@@ -17,9 +17,9 @@ This container does not need to listen on any ports but it does need at least
 two volumes mounted.
 
     docker build -t ghcr.io/paullockaby/certbot:latest .
-    docker run --rm -it -v $PWD/data:/var/lib/letsencrypt -v $PWD/logs:/var/log/letsencrypt ghcr.io/paullockaby/certbot:latest renew
+    docker run --rm -it -v $PWD/data:/etc/letsencrypt -v $PWD/logs:/var/log/letsencrypt ghcr.io/paullockaby/certbot:latest renew
 
-That is, you need to mount a directory for `/var/lib/letsencrypt` and
+That is, you need to mount a directory for `/etc/letsencrypt` and
 `/var/log/letsencrypt`. If you have renewal hooks that you want to run then you
 should mount `/etc/letsencrypt/renewal-hooks` and then put your hooks into one
 of the `post`, `pre`, or `deploy` directories under that.
@@ -29,7 +29,7 @@ of the `post`, `pre`, or `deploy` directories under that.
 To use this container to interact with certbot or to create a certificate, call
 it like this:
 
-    docker run --rm -it -v $PWD/data:/var/lib/letsencrypt -v $PWD/logs:/var/log/letsencrypt ghcr.io/paullockaby/certbot:latest \
+    docker run --rm -it -v $PWD/data:/etc/letsencrypt -v $PWD/logs:/var/log/letsencrypt ghcr.io/paullockaby/certbot:latest \
         certbot certonly --test-cert --dry-run -m noreply@example.org --agree-tos --no-eff-email --dns-route53 -d example.com
 
 This will put a new certificate in place under `$PWD/data`. You should

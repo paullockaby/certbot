@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim@sha256:77f46c1cf862290e750e913defffb2828c889d291a93bdd10a7a0597720948fc AS base
+FROM debian:bullseye-slim@sha256:7acda01e55b086181a6fa596941503648e423091ca563258e2c1657d140355b1 AS base
 
 # github metadata
 LABEL org.opencontainers.image.source=https://github.com/paullockaby/certbot

@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim@sha256:89468107e4c2b9fdea2f15fc582bf92c25aa4296a661ca0202f7ea2f4fc3f48c AS base
+FROM debian:bookworm-slim@sha256:741bae561f5c2261f4cdd535e4fd4c248dec0aafc1b9a1410b3d67ad24571340 AS base
 
 # github metadata
 LABEL org.opencontainers.image.source=https://github.com/paullockaby/certbot
